@@ -2985,48 +2985,5 @@ devops-scripts/
 └── README.md
 ```
 
-Все 50 скриптов готовы к использованию! 🎉
-```go
-Do(req)
-    if err != nil {
-        fmt.Println("✗ Ошибка запроса:", err)
-        return
-    }
-    defer resp.Body.Close()
-    
-    body, _ := io.ReadAll(resp.Body)
-    var job JenkinsJob
-    json.Unmarshal(body, &job)
-    
-    fmt.Printf("Job %s: %s\n", jobName, job.Result)
-}
 
-func main() {
-    checkJenkinsJob("http://jenkins.local", "deploy-prod", "admin", "token")
-}
-```
 
-### 29. Автоматический деплой через GitLab API
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "net/http"
-)
-
-func triggerGitLabPipeline(projectID int, token, ref string) {
-    url := fmt.Sprintf("https://gitlab.com/api/v4/projects/%d/pipeline", projectID)
-    
-    payload := map[string]string{"ref": ref}
-    jsonData, _ := json.Marshal(payload)
-    
-    client := &http.Client{}
-    req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
-    req.Header.Set("PRIVATE-TOKEN", token)
-    req.Header.Set("Content-Type", "application/json")
-    
-    resp, err := client.
-```
