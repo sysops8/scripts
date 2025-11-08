@@ -2985,7 +2985,9 @@ devops-scripts/
 └── README.md
 ```
 
-Все 50 скриптов готовы к использованию! 🎉Do(req)
+Все 50 скриптов готовы к использованию! 🎉
+```go
+Do(req)
     if err != nil {
         fmt.Println("✗ Ошибка запроса:", err)
         return
@@ -3027,3 +3029,4 @@ func triggerGitLabPipeline(projectID int, token, ref string) {
     req.Header.Set("Content-Type", "application/json")
     
     resp, err := client.
+```
