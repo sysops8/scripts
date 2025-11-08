@@ -613,5 +613,3 @@ API_KEY = os.getenv('WEATHER_API_KEY')
 - [Kubernetes Python Client](https://github.com/kubernetes-client/python)
 - [Requests Library](https://requests.readthedocs.io/)
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/)
-
-Удачи в автоматизации! 🚀
